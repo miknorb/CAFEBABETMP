@@ -1,7 +1,6 @@
 package com.training360.cafebabe.webshop.product.repository;
 
 import com.training360.cafebabe.webshop.product.entities.Product;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -21,7 +20,7 @@ public class ProductRepository {
         String url = rs.getString("url");
         String manufacturer = rs.getString("manufacturer");
         int price = rs.getInt("price");
-        return new Product(productKey,name,url,manufacturer,price);
+        return new Product(productKey, name, url, manufacturer, price);
     };
 
     public ProductRepository(DataSource dataSource) {
@@ -30,13 +29,13 @@ public class ProductRepository {
 
     //ha talál adott URL-ű productot, visszaad egy response-t present=true értékkel és a talált producttal,
     //ellenkező esetben false / null értékkel
-    public ProductResponse getProductByUrl(String url){
+    public ProductResponse getProductByUrl(String url) {
         ProductResponse response = new ProductResponse();
         try {
             response.setProduct(template.queryForObject(
-                   "SELECT product_key, name, url, manufacturer, price FROM products WHERE url = ?",
-                   mapper,
-                   url
+                    "SELECT product_key, name, url, manufacturer, price FROM products WHERE url = ?",
+                    mapper,
+                    url
             ));
             response.setPresent(true);
             return response;

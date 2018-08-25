@@ -8,7 +8,7 @@ public class Product {
     private int price;
 
     public Product(String productKey, String name, String url, String manufacturer, int price) {
-        if(price<=0 || isEmpty(productKey,name,url,manufacturer)){
+        if (price <= 0 || isEmpty(productKey, name, url, manufacturer)) {
             //TODO: hibadobálás?
         }
         this.productKey = productKey;
@@ -38,9 +38,9 @@ public class Product {
         return price;
     }
 
-    private boolean isEmpty(String... strs){
-        for(String str : strs){
-            if(str==null || str.trim().isEmpty()){
+    private boolean isEmpty(String... strs) {
+        for (String str : strs) {
+            if (str == null || str.trim().isEmpty()) {
                 return true;
             }
         }

@@ -12,7 +12,7 @@ public class ProductService {
         this.repository = repository;
     }
 
-    public ProductResponse getProductByUrl(String url){
+    public ProductResponse getProductByUrl(String url) {
         return repository.getProductByUrl(url);
     }
 }
