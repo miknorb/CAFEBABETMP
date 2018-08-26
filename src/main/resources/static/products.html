@@ -44,8 +44,8 @@
                                 </div>
                             </li>
                         </ul>
-                        <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="text" />
+                        <form class="form-inline" id="searchform">
+                            <input class="form-control mr-sm-2" type="text" id="searchbox" />
                             <button class="btn btn-primary my-2 my-sm-0" type="submit">
                                 Search
                             </button>
@@ -78,38 +78,21 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-4" id="product-container">
-                                <div class="card">
-                                    <h5 class="card-header">
-                                        Card title
-                                    </h5>
-                                    <div class="card-body">
-                                        <p class="card-text">
-                                            Card content
-                                        </p>
-                                    </div>
-                                    <div class="card-footer">
-                                        Card footer
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                            </div>
-                        </div>
+                <div class="row vertical-center-row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="text-center col-md-4 col-md-offset-4" id="product-container">
+                    </div>
+                    <div class="col-md-4">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/babe/design.js"></script>
+    <script src="js/product/product.js"></script>
 </body>
 
 </html>

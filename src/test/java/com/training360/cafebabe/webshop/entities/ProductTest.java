@@ -6,7 +6,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 public class ProductTest {
-    //TODO: hiba teszt ha kell
     @Test
     public void TestConstructor(){
         Product product = new Product("abc","tükör","tukor","valami",500);

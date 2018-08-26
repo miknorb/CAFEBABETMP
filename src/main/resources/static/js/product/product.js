@@ -1,11 +1,13 @@
 window.onload = function () {
-    fillPage();
+    var urlVars = getUrlVars();
+    fillPage(urlVars["url"]);
+    initSerachBox();
 
 }
 
-function fillPage() {
+function fillPage(url) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', "/products?url=" + getUrlVars()["url"]);
+    xhr.open('GET', "/products?url=" + url);
     xhr.onreadystatechange = function () {
         var DONE = 4;
         var OK = 200;
@@ -35,6 +37,16 @@ function getUrlVars() {
         vars[key] = value;
     });
     return vars;
+}
+
+function initSerachBox() {
+    var searchfrom = document.getElementById("searchform");
+    var searcbox = document.getElementById("searchbox");
+    searchfrom.addEventListener("submit", function (event) {
+        fillPage(searcbox.value);
+        event.preventDefault();
+        return false;
+    });
 }
 
 function displayProduct(container, product) {
