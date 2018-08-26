@@ -14,7 +14,7 @@ function fillTable() {
                 var productsTable = document.getElementById("products-table");
                 for (var i = 0; i < products.length; i++) {
                     productsTable.innerHTML += "<tr><td>" + products[i].productKey +
-                        "</td><td>" + "<a>" + products[i].name + "</a>" +
+                        "</td><td>" + "<a href=/" + products[i].url + ">" + products[i].name + "</a>" +
                         "</td><td>" + products[i].manufacturer +
                         "</td><td>" + products[i].price + "</td></tr>";
                 }

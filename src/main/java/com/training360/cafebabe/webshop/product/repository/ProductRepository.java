@@ -59,7 +59,7 @@ public class ProductRepository {
     }
 
     public List<Product> listProducts(int start, int size) {
-        return template.query("select product_key, name, manufacturer, price from products order by name, manufacturer limit ?, ?",
-                new MapperWithoutUrl(), start, size);
+        return template.query("select product_key, name, url, manufacturer, price from products order by name, manufacturer limit ?, ?",
+                mapper, start, size);
     }
 }
