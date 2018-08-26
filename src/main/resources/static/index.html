@@ -27,7 +27,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <a class="navbar-brand" href="#">CAFE</a>
+                    <a class="navbar-brand" href="/">CAFE</a>
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="navbar-nav">
 
@@ -61,16 +61,6 @@
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="dropdown-divider">
-                                    </div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -82,6 +72,16 @@
                     <div class="col-md-2">
                     </div>
                     <div class="col-md-8 col-md-offset-2">
+                        <form>
+                            <div class="form-group w-25 p-3 font-weight-bold">
+                                <label for="sel1">Display per page:</label>
+                                <select class="form-control" id="sel1">
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>40</option>
+                                </select>
+                            </div>
+                        </form>
                         <table class="table table-hover table-dim">
                             <thead>
                                 <tr>
@@ -103,6 +103,15 @@
 
                             </tbody>
                         </table>
+                        <div class="row align-items-center ">
+                            <div class="col-md-4">
+                            </div>
+                            <div class="btn-group" id="pager-container">
+
+                            </div>
+                            <div class="col-md-4">
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-2">
                     </div>
@@ -113,6 +122,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/babe/design.js"></script>
+    <script src="js/searchbar.js"></script>
     <script src="js/product/index.js"></script>
 </body>
 

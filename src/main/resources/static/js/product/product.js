@@ -1,7 +1,6 @@
 window.onload = function () {
     var urlVars = getUrlVars();
     fillPage(urlVars["url"]);
-    initSerachBox();
 }
 
 function fillPage(url) {
@@ -23,7 +22,6 @@ function fillPage(url) {
                     var product = productResponse.product;
                     displayProduct(container, product);
                 }
-
             }
         }
     }
@@ -40,15 +38,7 @@ function getUrlVars() {
     return vars;
 }
 
-function initSerachBox() {
-    var searchfrom = document.getElementById("searchform");
-    var searcbox = document.getElementById("searchbox");
-    searchfrom.addEventListener("submit", function (event) {
-        fillPage(searcbox.value);
-        event.preventDefault();
-        return false;
-    });
-}
+
 
 function displayProduct(container, product) {
     container.innerHTML = "";

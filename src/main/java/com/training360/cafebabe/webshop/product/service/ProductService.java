@@ -1,11 +1,9 @@
 package com.training360.cafebabe.webshop.product.service;
 
-import com.training360.cafebabe.webshop.product.entities.Product;
+import com.training360.cafebabe.webshop.product.repository.PageableProductsResponse;
 import com.training360.cafebabe.webshop.product.repository.ProductRepository;
 import com.training360.cafebabe.webshop.product.repository.ProductResponse;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class ProductService {
@@ -19,7 +17,19 @@ public class ProductService {
         return repository.getProductByUrl(url);
     }
 
-    public List<Product> listProduct(int start, int size) {
-        return repository.listProducts(start, size);
+    public PageableProductsResponse listProduct(int start, int size) {
+        PageableProductsResponse response= repository.listProducts(start, size);
+        int numberOfProducts=repository.numberOfProducts();
+        if(numberOfProducts%size!=0){
+            response.setTotalNumberOfPages((numberOfProducts/size)+1);
+        }else{
+            response.setTotalNumberOfPages(numberOfProducts/size);
+        }
+
+        response.setCurrentPage(start/size+1);
+
+        return response;
     }
+
+
 }
