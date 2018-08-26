@@ -1,12 +1,10 @@
-window.onload = function () {
-    initSerachBox();
-}
-
-function initSerachBox() {
-    var searchfrom = document.getElementById("searchform");
-    var searcbox = document.getElementById("searchbox");
-    searchfrom.addEventListener("submit", function (event) {
-        window.location.href = "/products.html?url=" + searcbox.value;
-        return false;
-    });
-}
+window.addEventListener('load', function () {
+    console.log("search");
+    var searchform = document.getElementById("searchform");
+    searchform.onsubmit = function (event) {
+        event.preventDefault();
+        var searcbox = document.getElementById("searchbox");
+        location = "/products.html?url=" + searcbox.value;
+        return flase;
+    };
+})

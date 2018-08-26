@@ -1,11 +1,11 @@
-window.onload = function () {
+window.addEventListener('load', function () {
     switchToPage(1, 10);
     var sizeSelect = document.getElementById("sel1");
     sizeSelect.addEventListener("change", function () {
         switchToPage(1, this.value);
         activePage = 1;
     })
-}
+});
 var activePage = 1;
 
 function fillTable(start, size) {
@@ -19,7 +19,6 @@ function fillTable(start, size) {
                 var numberOfPages = JSON.parse(xhr.responseText).totalNumberOfPages;
                 var products = JSON.parse(xhr.responseText).page;
                 var currentPage = JSON.parse(xhr.response).currentPage;
-
                 createPager(numberOfPages, currentPage);
                 var productsTable = document.getElementById("products-table");
                 productsTable.innerHTML = "";
