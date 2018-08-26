@@ -1,21 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <script src="/js/product/adminproducts.js"></script>
 </head>
+
 <body>
 
+<div id="product-errors"></div>
 
 <table id="product-container"></table>
 
+<div>
 
-<form id="product-form">
-    <input type="hidden" id="update-product-key" />
-    <input type="productKey" id="update-product-productKey" />
-    <input type="text" id="update-product-coords" />
-    <input type="submit" value="Update product">
-</form>
+    <form id="product-form">
+        <input type="hidden" id="product-id"/>
+        <label for="product-productKey">Termék azonosító</label>
+        <input type="text" id="product-productKey"/>
+        <br>
+        <label for="product-name">Termék név</label>
+        <input type="text" id="product-name"/>
+        <br>
+        <label for="product-url">Termék cím (url)</label>
+        <input type="text" id="product-url"/>
+        <br>
+        <label for="product-manufacturer">Termék Gyártó</label>
+        <input type="text" id="product-manufacturer"/>
+        <br>
+        <label for="product-price">Termék ára</label>
+        <input type="number" min="1" id="product-price"/>
+        <br>
+        <input type="submit" id="product-form-submit-button" value="Új termék hozzáadása">
+        <input type="button" id="product-form-cancel-button" value="Mégsem">
+    </form>
+
+</div>
 
 </body>
+
 </html>

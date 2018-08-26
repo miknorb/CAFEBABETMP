@@ -27,7 +27,18 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/products/{id}", method = RequestMethod.DELETE)
-    public boolean deleteProduct(@PathVariable long id){
+    public boolean deleteProduct(@PathVariable long id) {
         return service.deleteProduct(id);
     }
+
+    @RequestMapping(value = "/products", method = RequestMethod.POST)
+    public boolean createProduct(@RequestBody ProductRequest productRequest) {
+        return service.createProduct(productRequest);
+    }
+
+    @RequestMapping(value = "/products/{id}", method = RequestMethod.POST)
+    public boolean updateProduct(@RequestBody ProductRequest productRequest, @PathVariable long id) {
+        return service.updateProduct(productRequest, id);
+    }
+
 }
