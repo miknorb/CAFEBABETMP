@@ -7,6 +7,9 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 @Repository
 public class ProductRepository {
@@ -42,5 +45,21 @@ public class ProductRepository {
         } catch (EmptyResultDataAccessException erdae) {
             return response;
         }
+    }
+
+    private class MapperWithoutUrl implements RowMapper<Product> {
+        @Override
+        public Product mapRow(ResultSet rs, int i) throws SQLException {
+            String productKey = rs.getString("product_key");
+            String name = rs.getString("name");
+            String manufacturer = rs.getString("manufacturer");
+            int price = rs.getInt("price");
+            return new Product(productKey, name, manufacturer, price);
+        }
+    }
+
+    public List<Product> listProducts(int start, int size) {
+        return template.query("select product_key, name, manufacturer, price from products order by name, manufacturer limit ?, ?",
+                new MapperWithoutUrl(), start, size);
     }
 }
