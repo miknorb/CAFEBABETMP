@@ -1,21 +1,25 @@
 package com.training360.cafebabe.webshop.product.entities;
 
 public class Product {
+    private long id;
     private String productKey;
     private String name;
     private String url;
     private String manufacturer;
     private int price;
+    private boolean isActive;
 
-    public Product(String productKey, String name, String url, String manufacturer, int price) {
+    public Product(long id, String productKey, String name, String url, String manufacturer, int price, boolean isActive) {
         if (price <= 0 || isEmpty(productKey, name, url, manufacturer)) {
             //TODO: hibadobálás?
         }
+        this.id = id;
         this.productKey = productKey;
         this.name = name;
         this.url = url;
         this.manufacturer = manufacturer;
         this.price = price;
+        this.isActive = isActive;
     }
 
     public String getProductKey() {
@@ -45,5 +49,13 @@ public class Product {
             }
         }
         return false;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public boolean isActive() {
+        return isActive;
     }
 }
