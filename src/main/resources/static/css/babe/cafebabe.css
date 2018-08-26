@@ -36,3 +36,19 @@ body {
     background-color: rgb(0, 0, 0, 0.75);
     z-index: 10;
 }
+
+.table-dim {
+    background-color: rgb(245, 245, 245, 0.8);
+}
+
+.table-dim tr {
+    background-color: darkgray;
+}
+
+.table-dim th {
+    background-color: whitesmoke;
+}
+
+.table-dim tr:hover {
+    background-color: dimgray;
+}

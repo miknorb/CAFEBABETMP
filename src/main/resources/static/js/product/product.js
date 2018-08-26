@@ -2,8 +2,6 @@ window.onload = function () {
     var urlVars = getUrlVars();
     fillPage(urlVars["url"]);
     initSerachBox();
-    fillTable();
-
 }
 
 function fillPage(url) {
@@ -32,31 +30,7 @@ function fillPage(url) {
     xhr.send(null);
 }
 
-function fillTable() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/products');
-    xhr.onreadystatechange = function () {
-      var DONE = 4;
-      var OK = 200;
-      if (xhr.readyState === DONE) {
-        if (xhr.status === OK) {
-          var products = JSON.parse(xhr.responseText);
-          var productsTable = document.getElementById("products-table");
-          productsTable.innerHTML = "<tr><td>" +  "Product key" + "</td><td>" + "Name" + "</td><td>" + "Manufacturer"  + "</td><td>" + "Price" + "</td></tr>" ;
-          for (var i = 0; i < products.length; i++) {
-            productsTable.innerHTML += "<tr><td>" +  products[i].productKey +
-             "</td><td>" + products[i].name +
-              "</td><td>" + products[i].manufacturer +
-               "</td><td>" + products[i].price + "</td></tr>";
-          }
-        } else {
-          console.log('Error: ' + xhr.status);
-        }
-      }
-    };
-    xhr.send(null);
 
-}
 
 function getUrlVars() {
     var vars = {};
