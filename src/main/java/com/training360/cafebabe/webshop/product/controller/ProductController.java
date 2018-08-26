@@ -15,8 +15,8 @@ public class ProductController {
         this.service = service;
     }
 
-    @RequestMapping("/products")
-    public ProductResponse getProductByUrl(@RequestParam(value = "url", required = false) String url) {
+    @RequestMapping(value= "/products", params = "url")
+    public ProductResponse getProductByUrl(@RequestParam("url") String url) {
         return service.getProductByUrl(url);
     }
 }
